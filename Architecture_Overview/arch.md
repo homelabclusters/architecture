@@ -126,16 +126,16 @@ Expose Jenkins via NodePort or Ingress.
 - Install Jenkins plugins:
   - GitHub
   - Git
-  - Webhook Trigger
+  - Webhook Trigger -> github
   - Pipeline
 
-### Jenkinsfile Example:
+### Jenkinsfile.
 ```groovy
 pipeline {
     agent any
     stages {
         stage('Clone') {
-            steps { git 'https://github.com/user/repo.git' }
+            steps { git 'https://github.com/brodiep21/<jenkinssetup>/repo.git' }
         }
         stage('Build & Push') {
             steps {
@@ -212,7 +212,7 @@ metadata:
 
 ## 8. Go Website
 
-Dockerize your Go app and create a deployment pointing to it:
+Dockerize the Go app and create a deployment pointing to it:
 ```Dockerfile
 FROM golang:alpine
 WORKDIR /app
@@ -241,7 +241,7 @@ Make sure media is accessible via a shared volume or NFS.
 
 ## 10. GitOps (optional extension)
 
-Consider using ArgoCD or Flux for GitOps-based deployments.
+Using argocd for GITOPS.
 
 Install ArgoCD:
 ```bash
